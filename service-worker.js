@@ -1,3 +1,6 @@
+const CACHE_NAME = "attendance-cache-v2"; // v1 → v2 に変更
+
+
 const CACHE_NAME = "attendance-cache-v1";
 const ASSETS = ["./", "./index.html", "./manifest.json"];
 
