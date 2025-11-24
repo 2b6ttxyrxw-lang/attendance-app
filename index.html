@@ -45,7 +45,7 @@
 
       <div class="field" style="margin-top:16px;">
         <label>アプリURL（完了報告用）</label>
-        <input id="appUrl" placeholder="https://your-github-username.github.io/attendance-app" />
+        <input id="appUrl" placeholder="https://2b6ttxyrxw-lang.github.io/attendance-app/" />
       </div>
       <div class="row">
         <button id="btnDone" class="btn-done">🎉 課題完了報告</button>
@@ -57,17 +57,25 @@
   <div id="toast" class="toast">送信しました</div>
   <footer>© 2025 Attendance App</footer>
 
- <!-- 置き換え先 -->
-<script>
- const APP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwceLG7YBk-VMXw8toAVMsnsp7F6nyrxRpg6h62a5CY603ArH_9JMKedt-GlRSmWh0/exec";
+  <script>
+    /* ★★★ あなたの最新GAS URL ★★★ */
+    const APP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyPaBVOQAyWSkS9BYDXuOry7yt_xakm788lCB2n8AEOwJhCWXENWwnNwYrLcgnnESFSig/exec";
 
-</script>
-
-    // 連打防止
     let busy = false;
-    const toast = (msg) => { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=> t.classList.remove('show'), 1800); };
+    const toast = (msg) => {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(()=> t.classList.remove('show'), 1800);
+    };
 
-    const postNoCors = (payload) => fetch(APP_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    const postNoCors = (payload) =>
+      fetch(APP_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
     const getCommon = () => {
       const traineeId = document.getElementById('traineeId').value.trim();
